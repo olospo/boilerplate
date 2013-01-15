@@ -118,10 +118,42 @@
 		max-width: 100%;
 		height: auto; }
 
-/* #Misc */
+/* Misc */
 	.remove-bottom { margin-bottom: 0 !important; }
 	.half-bottom { margin-bottom: 10px !important; }
 	.add-bottom { margin-bottom: 20px !important; }
+	
+/* Header */
+
+header {
+	margin: 20px 0px;
+}
+
+/* Navigation */
+
+.navigation {
+
+}
+
+ul.nav {
+	margin: 20px 0px;
+}
+
+ul.nav li {
+	font-size: 14px;
+	display: inline;
+	padding-left: 15px;
+}
+
+ul.nav li:nth-child(1) {
+	padding-left: 0px;
+}
+
+/* Footer */
+
+footer {
+	margin: 20px 0px;
+}
 
 /* ================ Page Styles ================ */
 
