@@ -22,11 +22,6 @@
  * @since Twenty Twelve 1.0
  */
 
-/**
- * Sets up the content width value based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 625;
 
 /**
  * Sets up theme defaults and registers the various WordPress features that
@@ -49,38 +44,20 @@ function twentytwelve_setup() {
 	 * If you're building a theme based on Twenty Twelve, use a find and replace
 	 * to change 'twentytwelve' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'twentytwelve', get_template_directory() . '/languages' );
-
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
-
+	
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
-
-	// This theme supports a variety of post formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary', __( 'Primary Menu', 'twentytwelve' ) );
 
-	/*
-	 * This theme supports custom background color and image, and here
-	 * we also set up the default background color.
-	 */
-	add_theme_support( 'custom-background', array(
-		'default-color' => 'e6e6e6',
-	) );
+
 
 	// This theme uses a custom image size for featured images, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
 }
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
-
-/**
- * Adds support for a custom header image.
- */
-require( get_template_directory() . '/inc/custom-header.php' );
 
 /**
  * Enqueues scripts and styles for front-end.
@@ -138,17 +115,6 @@ function twentytwelve_scripts_styles() {
 		);
 		wp_enqueue_style( 'twentytwelve-fonts', add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" ), array(), null );
 	}
-
-	/*
-	 * Loads our main stylesheet.
-	 */
-	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
-
-	/*
-	 * Loads the Internet Explorer specific stylesheet.
-	 */
-	wp_enqueue_style( 'twentytwelve-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentytwelve-style' ), '20121010' );
-	$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
 
@@ -212,25 +178,6 @@ function twentytwelve_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	register_sidebar( array(
-		'name' => __( 'First Front Page Widget Area', 'twentytwelve' ),
-		'id' => 'sidebar-2',
-		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Second Front Page Widget Area', 'twentytwelve' ),
-		'id' => 'sidebar-3',
-		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
 }
 add_action( 'widgets_init', 'twentytwelve_widgets_init' );
 
@@ -411,40 +358,4 @@ function twentytwelve_body_class( $classes ) {
 }
 add_filter( 'body_class', 'twentytwelve_body_class' );
 
-/**
- * Adjusts content_width value for full-width and single image attachment
- * templates, and when there are no active widgets in the sidebar.
- *
- * @since Twenty Twelve 1.0
- */
-function twentytwelve_content_width() {
-	if ( is_page_template( 'page-templates/full-width.php' ) || is_attachment() || ! is_active_sidebar( 'sidebar-1' ) ) {
-		global $content_width;
-		$content_width = 960;
-	}
-}
-add_action( 'template_redirect', 'twentytwelve_content_width' );
 
-/**
- * Add postMessage support for site title and description for the Theme Customizer.
- *
- * @since Twenty Twelve 1.0
- *
- * @param WP_Customize_Manager $wp_customize Theme Customizer object.
- * @return void
- */
-function twentytwelve_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-}
-add_action( 'customize_register', 'twentytwelve_customize_register' );
-
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- *
- * @since Twenty Twelve 1.0
- */
-function twentytwelve_customize_preview_js() {
-	wp_enqueue_script( 'twentytwelve-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20120827', true );
-}
-add_action( 'customize_preview_init', 'twentytwelve_customize_preview_js' );

@@ -1,4 +1,4 @@
-<?php /* Single posts. */ get_header(); ?>
+<?php /* Template Name: Sidebar */ get_header(); ?>
 
 <div class="container">
 	<div class="two-thirds column">
