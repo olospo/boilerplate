@@ -77,8 +77,8 @@
 	    .container .column,
 	    .container .columns             { margin-left: 20px; margin-right: 20px; }
 
-	    .column.alpha, .columns.alpha   { margin-left: 0; margin-right: 10px; }
-	    .column.omega, .columns.omega   { margin-right: 0; margin-left: 10px; }
+	    .column.alpha, .columns.alpha   { margin-left: 0; margin-right: 20px; }
+	    .column.omega, .columns.omega   { margin-right: 0; margin-left: 20px; }
         .column.alpha.omega, .columns.alpha.omega {margin-left: 0; margin-right: 0}
 
 	    .container .one.column          { width: 35px; }
