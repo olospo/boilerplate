@@ -1,12 +1,13 @@
-<?php /* Single posts */ get_header(); ?>
-
-<div class="container">
-  <div class="sixteen columns">
-    <?php while ( have_posts() ) : the_post(); ?>
+<?php /*  Single Post */
+get_header(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
+<section class="post">
+  <div class="container">
+    <div class="twelve columns">
       <h1><?php the_title(); ?></h1>
       <?php the_content(); ?>
-    <?php endwhile; // end of the loop. ?>
+    </div>
   </div>
-</div>
-
+</section>
+<?php endwhile; // end of the loop. ?>
 <?php get_footer(); ?>

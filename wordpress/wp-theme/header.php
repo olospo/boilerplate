@@ -1,43 +1,20 @@
-<?php /* Header */ ?>
+<?php /* Header */  ?>
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html <?php language_attributes(); ?>>
 <head>
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=2.0; user-scalable=yes;" />
-<meta name="description" content="">
-<meta name="author" content="">
-
-<!-- ================ CSS ================ -->
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/skeleton.css">
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/layout.css">
-
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<!-- ================ JS ================ -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/retina.js"></script>
-
-<!-- ================ Favicons ================ -->
-<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-
+<title><?php bloginfo('name'); ?><?php wp_title( '|', true, 'left' ); ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimal-ui" />
+<?php wp_head(); ?>
+<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico">
 </head>
-<body>
+<body <?php body_class(); ?>>
 <header>
-	<div class="container">
-		<div class="logo one-third column">
-			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-		</div>
-		<div class="navigation two-thirds column">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-		</div>
-	</div>
+  <div class="container">
+    <div class="twelve columns">
+      <h1><a href="<?php echo get_site_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+    </div>
+  </div>
 </header>
+<nav>
+  <?php wp_nav_menu( array( 'theme_location' => 'main' ) ); ?>
+</nav>

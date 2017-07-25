@@ -1,0 +1,155 @@
+// Fonts
+$regular: Helvetica, Arial, sans-serif;
+$bold: Helvetica, Arial, sans-serif;
+$cond_med: Helvetica, Arial, sans-serif;
+$cond_bold: Helvetica, Arial, sans-serif;
+
+// Weights
+$normal: 400 normal;
+
+// Colours
+$white: #fff;
+$black: #000;
+$dark_grey: #454545;
+$mid_grey: #E6E6E6;
+$light_grey: #F1F1F1;
+
+// Twitter
+$twitter_blue: #2fcbfc;
+$twitter_blue_shade: #65d5f9;
+// Facebook
+$facebook_blue: #3d5b94;
+$facebook_blue_shade: #647ca9;
+
+// Breakpoints
+$breakpoint-mobile: 400px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 900px;
+$breakpoint-desktop: 1200px;
+  
+// General
+
+::selection {
+  color: $white;
+  background: $black;
+  text-shadow: none !important;
+}
+
+::-moz-selection {
+  color: $white;
+  background: $black;
+  text-shadow: none !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto; 
+}
+
+p {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+html { // 1.5rem = 15px
+  font-size: 62.5%;
+}
+
+body { 
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.8;
+  font-family: $regular;
+  background: #fff;
+  color: $dark_grey;
+  -webkit-font-smoothing: antialiased; // Fix fonts looking rubbish in Chrome
+}
+
+// Header
+header {
+  
+}
+
+// Page 
+
+section {
+
+}
+
+// Footer
+
+footer {
+  
+}
+
+// Pagination
+
+.pagination {
+  ul {
+    margin: 30px 0px 10px 0px;
+    li {
+      display: inline-block;
+      margin: 0px 10px;
+      &.active a {
+        background: $black;
+      }
+      a {
+        @include transition(background 1s ease-out);
+        display: inline-block;
+        font: $normal 1.6rem/1.6rem $bold;
+        padding: 16px 20px;
+        text-decoration: none;
+        background: $black;
+        color: $white;
+        &:hover {
+          @include transition(background 0.5s ease-in);
+          text-decoration: none;
+          background: $black;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// WordPress Alignment
+
+img.alignright, .wp-caption.alignright {
+  float:right; margin:0 0 0.8em 0.8em;
+  max-width: 100%;
+  height: auto;
+} 
+img.alignleft, .wp-caption.alignleft { 
+  float:left;
+  margin:0 0.8em 0.8em 0;
+  max-width: 100%;
+  height: auto;
+}
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+} 
+img.alignnone { 
+  max-width: 100%;
+  height: auto;
+}
+.alignright {
+  float:right;
+}
+.alignleft {
+  float:left;
+}
+.aligncenter { 
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+.wp-caption-text {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 3px;
+}

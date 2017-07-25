@@ -1,6 +1,6 @@
-<?php /* Category */
+<?php /* Archive */
 get_header(); ?>
-<section class="category">
+<section class="archive">
   <div class="container">
     <div class="twelve columns">
       <h1><?php single_cat_title(); ?></h1>
